@@ -95,21 +95,6 @@ public:
 private:
     /*ATTRIBUTE*/
 };
-
-class Advertiser{
-public:
-    /*CONSTRUCTOR*/
-    /*DESTRUCTOR*/
-    /*GETTER*/
-    /*SETTER*/
-    /*OTHER*/
-    /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
-
-private:
-    /*ATTRIBUTE*/
-};
-
 class Person{
 public:
     /*CONSTRUCTOR*/
@@ -162,5 +147,27 @@ public:
 
 private:
     /*ATTRIBUTE*/
+};
+
+class Advertiser{
+public:
+    /*CONSTRUCTOR*/
+    Advertiser();
+    /*DESTRUCTOR*/
+    ~Advertiser();
+    /*GETTER*/
+    Person getPerson();
+    string getId();
+    /*SETTER*/
+    void setPerson(Person Advi_person);
+    void setId(string advi_id);
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Advertiser &a);
+
+private:
+    /*ATTRIBUTE*/
+    Person person;
+    string id;
 };
 #endif // PROJECTDBHEADER_H_INCLUDED
