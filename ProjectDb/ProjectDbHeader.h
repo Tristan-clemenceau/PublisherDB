@@ -13,6 +13,7 @@ public:
     /*CONSTRUCTOR*/
     Book();
     /*DESTRUCTOR*/
+    ~Book();
     /*GETTER*/
     string getId();
     string getTitle();

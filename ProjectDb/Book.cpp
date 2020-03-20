@@ -9,6 +9,9 @@ Book::Book(){
     Book::bookContent ="Unset";
 }
 /*DESTRUCTOR*/
+Book::~Book(){
+    cout<<"ok";
+}
 /*GETTER*/
 string Book::getId(){
 	return Book::id;
@@ -38,6 +41,6 @@ void Book::setBookContent(string Book_bookContent){
 /*OTHER*/
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,const Book &b){
-    out<<"[Book]\t Title : "<<b.title<<"\t Id : "<<b.id<<endl;
+    out<<"[Book]\t Title : "<<b.title<<"\t Id : "<<b.id<<"\t nbPage : "<<b.nbPage<<endl;
     return out;
 }
