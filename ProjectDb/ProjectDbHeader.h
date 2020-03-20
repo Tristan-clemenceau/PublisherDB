@@ -139,17 +139,25 @@ private:
 };
 
 class Person{
-    public:
+public:
     /*CONSTRUCTOR*/
+    Person();
     /*DESTRUCTOR*/
+    ~Person();
     /*GETTER*/
+    string getId();
+    string getName();
     /*SETTER*/
+    void setId(string Person_id);
+    void setName(string Person_name);
     /*OTHER*/
     /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
+    friend ostream& operator<<(ostream &out,const Person &p);
 
 private:
     /*ATTRIBUTE*/
+    string name;
+    string id;
 };
 
 #endif // PROJECTDBHEADER_H_INCLUDED
