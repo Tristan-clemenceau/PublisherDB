@@ -32,6 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Advertiser.cpp" />
+		<Unit filename="Book.cpp" />
+		<Unit filename="Company.cpp" />
+		<Unit filename="PaperBook.cpp" />
+		<Unit filename="Person.cpp" />
+		<Unit filename="PhysicalPerson.cpp" />
+		<Unit filename="ProjectDbHeader.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
