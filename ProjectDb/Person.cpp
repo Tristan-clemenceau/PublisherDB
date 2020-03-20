@@ -7,13 +7,25 @@ Person::Person(){
     Person::name="Unset";
 }
 /*DESTRUCTOR*/
-~Person();
+Person::~Person(){
+}
 /*GETTER*/
-string getId();
-string getName();
+string Person::getId(){
+    return Person::id;
+}
+string Person::getName(){
+    return Person::name;
+}
 /*SETTER*/
-void setId(string Person_id);
-void setName(string Person_name);
+void Person::setId(string Person_id){
+    Person::id = Person_id;
+}
+void Person::setName(string Person_name){
+    Person::name = Person_name;
+}
 /*OTHER*/
 /*OBJECT METHOD*/
-friend ostream& operator<<(ostream &out,const Person &p);
+ostream& operator<<(ostream &out,const Person &p){
+    out<<"[Person]\t Id : "<<p.id<<"\t Name : "<<p.name<<endl;
+    return out;
+}

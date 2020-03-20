@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1584726755 source:c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\main.cpp
+1584729189 source:c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\main.cpp
 	<iostream>
 	"ProjectDbHeader.h"
 
-1584727255 c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\projectdbheader.h
+1584728550 c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\projectdbheader.h
 	<string>
 	<iostream>
 
@@ -11,5 +11,8 @@
 	"ProjectDbHeader.h"
 
 1584724858 source:c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\paperbook.cpp
+	"ProjectDbHeader.h"
+
+1584729163 source:c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\person.cpp
 	"ProjectDbHeader.h"
 
