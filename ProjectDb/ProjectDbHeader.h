@@ -38,6 +38,16 @@ private:
 
 class PaperBook : public Book{
 public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
    /* PaperBook(): Book(){
         Book();
     }
@@ -45,24 +55,101 @@ public:
 };
 
 class HardBack{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class Magazines{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class Advertisement{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class Advertiser{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class Company{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class PhysicalPerson{
+public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 class Person{
+    public:
+    /*CONSTRUCTOR*/
+    /*DESTRUCTOR*/
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,const Book &b);
+
+private:
+    /*ATTRIBUTE*/
 };
 
 #endif // PROJECTDBHEADER_H_INCLUDED
