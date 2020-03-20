@@ -110,34 +110,6 @@ private:
     /*ATTRIBUTE*/
 };
 
-class Company{
-public:
-    /*CONSTRUCTOR*/
-    /*DESTRUCTOR*/
-    /*GETTER*/
-    /*SETTER*/
-    /*OTHER*/
-    /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
-
-private:
-    /*ATTRIBUTE*/
-};
-
-class PhysicalPerson{
-public:
-    /*CONSTRUCTOR*/
-    /*DESTRUCTOR*/
-    /*GETTER*/
-    /*SETTER*/
-    /*OTHER*/
-    /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
-
-private:
-    /*ATTRIBUTE*/
-};
-
 class Person{
 public:
     /*CONSTRUCTOR*/
@@ -160,4 +132,35 @@ private:
     string id;
 };
 
+class Company : public Person{
+public:
+    /*CONSTRUCTOR*/
+    Company();
+    /*DESTRUCTOR*/
+    ~Company();
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,Company &c);
+
+private:
+    /*ATTRIBUTE*/
+};
+
+class PhysicalPerson : public Person{
+public:
+    /*CONSTRUCTOR*/
+    PhysicalPerson();
+    /*DESTRUCTOR*/
+    ~PhysicalPerson();
+    /*GETTER*/
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,PhysicalPerson &pp);
+
+private:
+    /*ATTRIBUTE*/
+};
 #endif // PROJECTDBHEADER_H_INCLUDED
