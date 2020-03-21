@@ -9,7 +9,7 @@ Magazines::Magazines(): Book(){
 Magazines::~Magazines(){
 }
 /*GETTER*/
-vector<Advertisement> Magazines::getArrArdv(){
+list<Advertisement> Magazines::getArrArdv(){
     return Magazines::arrArdv;
 }
 /*SETTER*/

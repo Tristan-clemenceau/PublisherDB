@@ -2,12 +2,9 @@
 #define PROJECTDBHEADER_H_INCLUDED
 #include <string>
 #include <iostream>
-#include <vector>
+#include <list>
 
 using namespace std;
-
-class Publisher{
-};
 
 class Book{
 public:
@@ -101,7 +98,7 @@ public:
     /*DESTRUCTOR*/
     ~Magazines();
     /*GETTER*/
-    vector<Advertisement> getArrArdv();
+    list<Advertisement> getArrArdv();
     /*SETTER*/
     /*OTHER*/
     //Add del insert find
@@ -113,7 +110,7 @@ public:
 
 private:
     /*ATTRIBUTE*/
-    vector<Advertisement> arrArdv;
+    list<Advertisement> arrArdv;
 };
 
 class Person{
@@ -190,5 +187,25 @@ private:
     /*ATTRIBUTE*/
     Person person;
     string id;
+};
+
+class Publisher{
+public:
+    /*CONSTRUCTOR*/
+    Publisher();
+    /*DESTRUCTOR*/
+    ~Publisher();
+    /*GETTER*/
+    list<Person> getListPerson();
+    list<Book> getListBook();
+    /*SETTER*/
+    /*OTHER*/
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,Publisher &p);
+
+private:
+    /*ATTRIBUTE*/
+    list<Person> listPerson;
+    list<Book> listBook;
 };
 #endif // PROJECTDBHEADER_H_INCLUDED

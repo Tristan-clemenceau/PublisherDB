@@ -14,6 +14,7 @@ int main()
     PhysicalPerson phy;
     Advertiser adv;
     Advertisement adp;
+    Publisher pub;
     cout<<b;
     cout<<pp;
     cout<<c;
@@ -23,5 +24,6 @@ int main()
     cout<<pb;
     cout<<hb;
     cout<<mg;
+    cout<<pub;
     return 0;
 }

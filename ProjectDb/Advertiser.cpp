@@ -28,6 +28,6 @@ void Advertiser::setId(string advi_id){
 /*OTHER*/
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,const Advertiser &a){
-    out<<"[Advertiser]\t Id : "<<a.id<<"\t Advertiser : "<<a.person<<endl;
+    out<<"[Advertiser]\t Id : "<<a.id<<"\t Advertiser : "<<a.person;
     return out;
 }
