@@ -39,33 +39,36 @@ private:
 class PaperBook : public Book{
 public:
     /*CONSTRUCTOR*/
+    PaperBook();
     /*DESTRUCTOR*/
+    ~PaperBook();
     /*GETTER*/
     /*SETTER*/
     /*OTHER*/
     /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
+    friend ostream& operator<<(ostream &out,PaperBook &b);
 
 private:
     /*ATTRIBUTE*/
-   /* PaperBook(): Book(){
-        Book();
-    }
-    friend ostream& operator<<(ostream &out,const PaperBook &b);*/
 };
 
-class HardBack{
+class HardBack : public Book{
 public:
     /*CONSTRUCTOR*/
+    HardBack();
     /*DESTRUCTOR*/
+    ~HardBack();
     /*GETTER*/
+    float getWeight();
     /*SETTER*/
+    void setWeight(float amount);
     /*OTHER*/
     /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
+    friend ostream& operator<<(ostream &out,HardBack &hb);
 
 private:
     /*ATTRIBUTE*/
+    float weight;
 };
 
 class Magazines{
@@ -85,15 +88,23 @@ private:
 class Advertisement{
 public:
     /*CONSTRUCTOR*/
+    Advertisement();
     /*DESTRUCTOR*/
+    ~Advertisement();
     /*GETTER*/
+    string getTitle();
+    string getAdvertiserId();
     /*SETTER*/
+    void setTitle(string advertisementTitle);
+    void setAdvertiserId(string id);
     /*OTHER*/
     /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
+    friend ostream& operator<<(ostream &out,const Advertisement &a);
 
 private:
     /*ATTRIBUTE*/
+    string title;
+    string advertiserId;
 };
 class Person{
 public:

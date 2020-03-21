@@ -1,6 +1,18 @@
 #include "ProjectDbHeader.h"
+using namespace std;
 
-/*ostream& operator<<(ostream &out,const PaperBook &b){
-    out<<"[PaperBook]\t Title : "<<b.title<<"\t Id : "<<b.id<<endl;
+/*CONSTRUCTOR*/
+PaperBook::PaperBook(): Book(){
+
+}
+/*DESTRUCTOR*/
+PaperBook::~PaperBook(){
+}
+/*GETTER*/
+/*SETTER*/
+/*OTHER*/
+/*OBJECT METHOD*/
+ostream& operator<<(ostream &out,PaperBook &b){
+    out<<"[PaperBook]\t Title : "<<b.getTitle()<<"\t Id : "<<b.getId()<<"\t nbPage : "<<b.getNbPage()<<endl;
     return out;
-}*/
+}
