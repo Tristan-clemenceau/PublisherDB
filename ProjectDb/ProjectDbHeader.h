@@ -2,6 +2,7 @@
 #define PROJECTDBHEADER_H_INCLUDED
 #include <string>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -71,20 +72,6 @@ private:
     float weight;
 };
 
-class Magazines{
-public:
-    /*CONSTRUCTOR*/
-    /*DESTRUCTOR*/
-    /*GETTER*/
-    /*SETTER*/
-    /*OTHER*/
-    /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,const Book &b);
-
-private:
-    /*ATTRIBUTE*/
-};
-
 class Advertisement{
 public:
     /*CONSTRUCTOR*/
@@ -106,6 +93,29 @@ private:
     string title;
     string advertiserId;
 };
+
+class Magazines : public Book{
+public:
+    /*CONSTRUCTOR*/
+    Magazines();
+    /*DESTRUCTOR*/
+    ~Magazines();
+    /*GETTER*/
+    vector<Advertisement> getArrArdv();
+    /*SETTER*/
+    /*OTHER*/
+    //Add del insert find
+    void addElement();
+    void delElement();
+    void findElement();
+    /*OBJECT METHOD*/
+    friend ostream& operator<<(ostream &out,Magazines &m);
+
+private:
+    /*ATTRIBUTE*/
+    vector<Advertisement> arrArdv;
+};
+
 class Person{
 public:
     /*CONSTRUCTOR*/

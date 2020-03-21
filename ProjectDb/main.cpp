@@ -8,6 +8,7 @@ int main()
     Book b;
     PaperBook pb;
     HardBack hb;
+    Magazines mg;
     Person pp;
     Company c;
     PhysicalPerson phy;
@@ -21,5 +22,6 @@ int main()
     cout<<adp;
     cout<<pb;
     cout<<hb;
+    cout<<mg;
     return 0;
 }
