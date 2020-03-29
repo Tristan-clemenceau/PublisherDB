@@ -200,6 +200,17 @@ public:
     list<Book> getListBook();
     /*SETTER*/
     /*OTHER*/
+    void loadData();
+    void displayWeightBook();
+    void displayMagazine();
+    void displayHardback();
+    void displayAdvertiser();
+    void displayPaperbook();
+    void displayMagazineInfo();
+    void searchWord(string word);
+    void addMagazine(Magazines mag);
+    void removeMagazine(string id);
+    void removeBook(string id);
     /*OBJECT METHOD*/
     friend ostream& operator<<(ostream &out,Publisher &p);
 

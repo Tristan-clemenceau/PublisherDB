@@ -38,3 +38,42 @@
 1584815434 source:c:\users\tristan\documents\efrei\c++\publisherdb\projectdb\publisher.cpp
 	"ProjectDbHeader.h"
 
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\advertisement.cpp
+	"ProjectDbHeader.h"
+
+1585506397 d:\efrei\c++\publisherdb\projectdb\projectdbheader.h
+	<string>
+	<iostream>
+	<list>
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\advertiser.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\book.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\company.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\hardback.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\magazines.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\main.cpp
+	<iostream>
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\paperbook.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\person.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\physicalperson.cpp
+	"ProjectDbHeader.h"
+
+1585065236 source:d:\efrei\c++\publisherdb\projectdb\publisher.cpp
+	"ProjectDbHeader.h"
+
