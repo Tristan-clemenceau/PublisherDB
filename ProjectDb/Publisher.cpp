@@ -26,6 +26,12 @@ void Publisher::loadData(){
     cout<<"===Loading data==="<<endl;
     Publisher::loadDataPaperBook();
     Publisher::loadDataHardBackBook();
+    Publisher::loadDataMagazine();
+    Publisher::loadDataCompany();
+    Publisher::loadDataPhysicalPerson();
+    Publisher::loadDataAdvertiser();
+    Publisher::setAdvertiser();
+    //Publisher::loadDataAdvertisement();
     cout<<"===Data loaded==="<<endl;
 }
 void Publisher::displayWeightBook(){
@@ -63,7 +69,7 @@ void Publisher::loadDataPaperBook(){
         tempPaper.setTitle(temp[1]);
         tempPaper.setNbPage(atoi(temp[2].c_str()));
         tempPaper.setBookContent(temp[3]);
-       // tempPaper.display();
+
         cout<<tempPaper;
 
         //adding object to vector
@@ -89,7 +95,6 @@ void Publisher::loadDataHardBackBook(){
         tempHard.setBookContent(temp[3]);
         tempHard.setWeight(strtof(temp[4].c_str(),0));
 
-       // tempPaper.display();
         cout<<tempHard;
 
         //adding object to vector
@@ -100,12 +105,94 @@ void Publisher::loadDataHardBackBook(){
     MyReadFile.close();
 }
 void Publisher::loadDataMagazine(){
+    cout<<"Loading data Magazine"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Book//Magazine.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        Magazines tempMag;
+        tempMag.setId(temp[0]);
+        tempMag.setTitle(temp[1]);
+        tempMag.setNbPage(atoi(temp[2].c_str()));
+        tempMag.setBookContent(temp[3]);
+
+        cout<<tempMag;
+
+        //adding object to vector
+        Publisher::addMagazine(tempMag);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 void Publisher::loadDataCompany(){
+    cout<<"Loading data Company"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Person//Company.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        Company tempComp;
+        tempComp.setId(temp[0]);
+        tempComp.setName(temp[1]);
+
+        cout<<tempComp;
+
+        //adding object to vector
+        Publisher::addPerson(tempComp);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 void Publisher::loadDataPhysicalPerson(){
+    cout<<"Loading data Company"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Person//PhysicalPerson.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        PhysicalPerson tempphy;
+        tempphy.setId(temp[0]);
+        tempphy.setName(temp[1]);
+
+        cout<<tempphy;
+
+        //adding object to vector
+        Publisher::addPerson(tempphy);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 void Publisher::loadDataAdvertiser(){
+    cout<<"Loading data Advertiser"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Person//Advertiser.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        Advertiser tempAdver;
+        Person p;
+        tempAdver.setId(temp[0]);
+        p.setId(temp[1]);
+        tempAdver.setPerson(p);
+
+        //adding object to vector
+        Publisher::addAdvertiser(tempAdver);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 void Publisher::loadDataAdvertisement(){
 }
@@ -125,6 +212,27 @@ vector<string> Publisher::split(string text){
 }
 void Publisher::addBook(Book b){
     Publisher::listBook.push_back(b);
+}
+void Publisher::addPerson(Person p){
+    Publisher::listPerson.push_back(p);
+}
+void Publisher::addAdvertiser(Advertiser a){
+    Publisher::listAdvertiser.push_back(a);
+}
+
+void Publisher::setAdvertiser(){
+    for(int i = 0; i<Publisher::listAdvertiser.size();i++){
+            Publisher::listAdvertiser[i].setPerson(Publisher::test(Publisher::listAdvertiser[i].getPerson().getId()));
+            cout<<Publisher::listAdvertiser[i];
+    }
+}
+
+Person Publisher::test(string id){
+    for(int i = 0;i < Publisher::listPerson.size();i++){
+        if(Publisher::listPerson[i].getId() == id){
+            return Publisher::listPerson[i];
+        }
+    }
 }
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,Publisher &p){

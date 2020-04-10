@@ -218,6 +218,7 @@ private:
     /*ATTRIBUTE*/
     vector<Person> listPerson;
     vector<Book> listBook;
+    vector<Advertiser> listAdvertiser;
     /*OTHER*/
     void loadDataPaperBook();
     void loadDataHardBackBook();
@@ -227,6 +228,10 @@ private:
     void loadDataAdvertiser();
     void loadDataAdvertisement();
     void addBook(Book b);
+    void addPerson(Person p);
+    void addAdvertiser(Advertiser a);
+    void setAdvertiser();
     vector<string> split(string text);
+    Person test(string id);
 };
 #endif // PROJECTDBHEADER_H_INCLUDED
