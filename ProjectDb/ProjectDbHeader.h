@@ -102,7 +102,7 @@ public:
     /*SETTER*/
     /*OTHER*/
     //Add del insert find
-    void addElement();
+    void addElement(Advertisement a);
     void delElement();
     void findElement();
     /*OBJECT METHOD*/
@@ -218,7 +218,9 @@ private:
     /*ATTRIBUTE*/
     vector<Person> listPerson;
     vector<Book> listBook;
+    //Rajouter vecteur pour les autres classes
     vector<Advertiser> listAdvertiser;
+    vector<Advertisement> listAdvertisement;
     /*OTHER*/
     void loadDataPaperBook();
     void loadDataHardBackBook();
@@ -230,7 +232,9 @@ private:
     void addBook(Book b);
     void addPerson(Person p);
     void addAdvertiser(Advertiser a);
+    void addAdvertisement(Advertisement a);
     void setAdvertiser();
+    void setAdvertisement(string id,Advertisement a);
     vector<string> split(string text);
     Person test(string id);
 };

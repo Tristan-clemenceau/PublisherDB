@@ -15,7 +15,8 @@ vector<Advertisement> Magazines::getArrArdv(){
 /*SETTER*/
 /*OTHER*/
 //Add del insert find
-void Magazines::addElement(){
+void Magazines::addElement(Advertisement a){
+    Magazines::arrArdv.push_back(a);
 }
 void Magazines::delElement(){
 }

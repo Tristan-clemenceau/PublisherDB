@@ -31,7 +31,7 @@ void Publisher::loadData(){
     Publisher::loadDataPhysicalPerson();
     Publisher::loadDataAdvertiser();
     Publisher::setAdvertiser();
-    //Publisher::loadDataAdvertisement();
+    Publisher::loadDataAdvertisement();
     cout<<"===Data loaded==="<<endl;
 }
 void Publisher::displayWeightBook(){
@@ -195,6 +195,25 @@ void Publisher::loadDataAdvertiser(){
     MyReadFile.close();
 }
 void Publisher::loadDataAdvertisement(){
+    cout<<"Loading data Advertisement"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Book//Advertisement.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        Advertisement tempAdvert;
+        tempAdvert.setTitle(temp[2]);
+        tempAdvert.setAdvertiserId(temp[1]);
+        Publisher::setAdvertisement(temp[0],tempAdvert);
+
+        //adding object to vector
+        Publisher::addAdvertisement(tempAdvert);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 vector<string> Publisher::split(string text){
     vector<string> res;
@@ -219,6 +238,9 @@ void Publisher::addPerson(Person p){
 void Publisher::addAdvertiser(Advertiser a){
     Publisher::listAdvertiser.push_back(a);
 }
+void Publisher::addAdvertisement(Advertisement a){
+    Publisher::listAdvertisement.push_back(a);
+}
 
 void Publisher::setAdvertiser(){
     for(int i = 0; i<Publisher::listAdvertiser.size();i++){
@@ -231,6 +253,17 @@ Person Publisher::test(string id){
     for(int i = 0;i < Publisher::listPerson.size();i++){
         if(Publisher::listPerson[i].getId() == id){
             return Publisher::listPerson[i];
+        }
+    }
+}
+
+void Publisher::setAdvertisement(string id,Advertisement a){
+    for(int i = 0;i < Publisher::listBook.size();i++){
+        char first = Publisher::listBook[i].getId()[0];
+        char second = Publisher::listBook[i].getId()[1];
+        if(first == 'M' && second == 'G' && Publisher::listBook[i].getId() == id){
+            cout<<Publisher::listBook[i];
+            //canger les vecteurs
         }
     }
 }
