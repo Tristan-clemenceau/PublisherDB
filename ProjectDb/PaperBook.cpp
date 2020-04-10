@@ -7,6 +7,7 @@ PaperBook::PaperBook(): Book(){
 }
 /*DESTRUCTOR*/
 PaperBook::~PaperBook(){
+    cout<<"Deleting paperBook item"<<endl;
 }
 /*GETTER*/
 /*SETTER*/

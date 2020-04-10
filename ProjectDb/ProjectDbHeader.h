@@ -219,6 +219,14 @@ private:
     vector<Person> listPerson;
     vector<Book> listBook;
     /*OTHER*/
-
+    void loadDataPaperBook();
+    void loadDataHardBackBook();
+    void loadDataMagazine();
+    void loadDataCompany();
+    void loadDataPhysicalPerson();
+    void loadDataAdvertiser();
+    void loadDataAdvertisement();
+    void addBook(Book b);
+    vector<string> split(string text);
 };
 #endif // PROJECTDBHEADER_H_INCLUDED

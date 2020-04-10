@@ -10,7 +10,7 @@ Book::Book(){
 }
 /*DESTRUCTOR*/
 Book::~Book(){
-    cout<<"ok";
+    //cout<<"ok";
 }
 /*GETTER*/
 string Book::getId(){
