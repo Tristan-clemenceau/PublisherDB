@@ -8,10 +8,7 @@ using namespace std;
 
 int main()
 {
-    string test = "data1,data2,data3 suite yo";
-    vector<string>trol;
-
-    Book b;
+    /*Book b;
     PaperBook pb;
     HardBack hb;
     Magazines mg;
@@ -19,10 +16,10 @@ int main()
     Company c;
     PhysicalPerson phy;
     Advertiser adv;
-    Advertisement adp;
+    Advertisement adp;*/
     Publisher pub;
 
-    cout<<b;
+   /* cout<<b;
     cout<<pp;
     cout<<c;
     cout<<phy;
@@ -31,7 +28,7 @@ int main()
     cout<<pb;
     cout<<hb;
     cout<<mg;
-    cout<<pub;
+    cout<<pub;*/
 
     pub.loadData();
     cout<<pub;

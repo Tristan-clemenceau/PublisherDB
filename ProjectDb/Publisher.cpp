@@ -25,6 +25,7 @@ vector<Book> Publisher::getListBook(){
 void Publisher::loadData(){
     cout<<"===Loading data==="<<endl;
     Publisher::loadDataPaperBook();
+    Publisher::loadDataHardBackBook();
     cout<<"===Data loaded==="<<endl;
 }
 void Publisher::displayWeightBook(){
@@ -73,6 +74,30 @@ void Publisher::loadDataPaperBook(){
     MyReadFile.close();
 }
 void Publisher::loadDataHardBackBook(){
+    cout<<"Loading data HardBackBook"<<endl;
+    string myText;
+    //Read file
+    ifstream MyReadFile("Database//Book//HarbackBook.txt");
+    while(getline(MyReadFile, myText)) {
+        //Split data
+        vector<string> temp = Publisher::split(myText);
+        //Creating Object
+        HardBack tempHard;
+        tempHard.setId(temp[0]);
+        tempHard.setTitle(temp[1]);
+        tempHard.setNbPage(atoi(temp[2].c_str()));
+        tempHard.setBookContent(temp[3]);
+        tempHard.setWeight(strtof(temp[4].c_str(),0));
+
+       // tempPaper.display();
+        cout<<tempHard;
+
+        //adding object to vector
+        Publisher::addBook(tempHard);
+
+    }
+    //adding object to vector
+    MyReadFile.close();
 }
 void Publisher::loadDataMagazine(){
 }
