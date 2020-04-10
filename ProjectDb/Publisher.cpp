@@ -10,15 +10,16 @@ Publisher::Publisher(){
 Publisher::~Publisher(){
 }
 /*GETTER*/
-list<Person> Publisher::getListPerson(){
+vector<Person> Publisher::getListPerson(){
     return Publisher::listPerson;
 }
-list<Book> Publisher::getListBook(){
+vector<Book> Publisher::getListBook(){
     return Publisher::listBook;
 }
 /*SETTER*/
 /*OTHER*/
 void Publisher::loadData(){
+
 }
 void Publisher::displayWeightBook(){
 }
