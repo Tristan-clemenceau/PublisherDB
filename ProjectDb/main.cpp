@@ -31,12 +31,16 @@ int main()
     cout<<pub;*/
 
     pub.loadData();
+    cout<<pub;
     pub.displayMagazine();
     pub.displayPaperBackbook();
     pub.displayHardback();
     pub.displayAdvertiser();
     pub.displayAdvertisement();
     pub.displayWeightBook();
+    pub.userAddMagazine();
+    pub.userRemoveBook();
+    pub.displayMagazine();
 
     cout<<pub;
 

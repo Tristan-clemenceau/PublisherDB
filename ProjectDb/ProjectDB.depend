@@ -41,7 +41,7 @@
 1585065236 source:d:\efrei\c++\publisherdb\projectdb\advertisement.cpp
 	"ProjectDbHeader.h"
 
-1586777701 d:\efrei\c++\publisherdb\projectdb\projectdbheader.h
+1586791109 d:\efrei\c++\publisherdb\projectdb\projectdbheader.h
 	<string>
 	<iostream>
 	<vector>
@@ -61,7 +61,7 @@
 1586775840 source:d:\efrei\c++\publisherdb\projectdb\magazines.cpp
 	"ProjectDbHeader.h"
 
-1586776283 source:d:\efrei\c++\publisherdb\projectdb\main.cpp
+1586789825 source:d:\efrei\c++\publisherdb\projectdb\main.cpp
 	<iostream>
 	"ProjectDbHeader.h"
 	<fstream>
@@ -77,11 +77,13 @@
 1585065236 source:d:\efrei\c++\publisherdb\projectdb\physicalperson.cpp
 	"ProjectDbHeader.h"
 
-1586775792 source:d:\efrei\c++\publisherdb\projectdb\publisher.cpp
+1586789734 source:d:\efrei\c++\publisherdb\projectdb\publisher.cpp
 	"ProjectDbHeader.h"
 	<fstream>
+	<sstream>
 	<string>
 	<vector>
+	<iostream>
 	<string>
 	<stdlib.h>
 
