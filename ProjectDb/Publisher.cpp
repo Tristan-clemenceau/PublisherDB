@@ -49,7 +49,7 @@ void Publisher::displayMagazineInfo(){
 void Publisher::searchWord(string word){
 }
 void Publisher::addMagazine(Magazines mag){
-    Publisher::listBook.push_back(mag);
+    Publisher::listMagazines.push_back(mag);
 }
 void Publisher::removeMagazine(string id){
 }
@@ -73,7 +73,7 @@ void Publisher::loadDataPaperBook(){
         cout<<tempPaper;
 
         //adding object to vector
-        Publisher::addBook(tempPaper);
+        Publisher::addPaperBook(tempPaper);
 
     }
     //adding object to vector
@@ -98,7 +98,7 @@ void Publisher::loadDataHardBackBook(){
         cout<<tempHard;
 
         //adding object to vector
-        Publisher::addBook(tempHard);
+        Publisher::addHarback(tempHard);
 
     }
     //adding object to vector
@@ -144,7 +144,7 @@ void Publisher::loadDataCompany(){
         cout<<tempComp;
 
         //adding object to vector
-        Publisher::addPerson(tempComp);
+        Publisher::addCompany(tempComp);
 
     }
     //adding object to vector
@@ -166,7 +166,8 @@ void Publisher::loadDataPhysicalPerson(){
         cout<<tempphy;
 
         //adding object to vector
-        Publisher::addPerson(tempphy);
+        //Publisher::addPerson(tempphy);
+        Publisher::addPhysicalPerson(tempphy);
 
     }
     //adding object to vector
@@ -235,6 +236,19 @@ void Publisher::addBook(Book b){
 void Publisher::addPerson(Person p){
     Publisher::listPerson.push_back(p);
 }
+/*Update*/
+void Publisher::addPaperBook(PaperBook p){
+    Publisher::listPaperBook.push_back(p);
+}
+void Publisher::addHarback(HardBack h){
+    Publisher::listHardBack.push_back(h);
+}
+void Publisher::addCompany(Company c){
+    Publisher:listCompany.push_back(c);
+}
+void Publisher::addPhysicalPerson(PhysicalPerson p){
+    Publisher::listPhysicalPerson.push_back(p);
+}
 void Publisher::addAdvertiser(Advertiser a){
     Publisher::listAdvertiser.push_back(a);
 }
@@ -244,27 +258,37 @@ void Publisher::addAdvertisement(Advertisement a){
 
 void Publisher::setAdvertiser(){
     for(int i = 0; i<Publisher::listAdvertiser.size();i++){
-            Publisher::listAdvertiser[i].setPerson(Publisher::test(Publisher::listAdvertiser[i].getPerson().getId()));
+            Publisher::listAdvertiser[i].setPerson(Publisher::getPersonById(Publisher::listAdvertiser[i].getPerson().getId()));
             cout<<Publisher::listAdvertiser[i];
     }
 }
 
-Person Publisher::test(string id){
-    for(int i = 0;i < Publisher::listPerson.size();i++){
-        if(Publisher::listPerson[i].getId() == id){
-            return Publisher::listPerson[i];
+Person Publisher::getPersonById(string id){
+    cout<<"Searching person"<<endl;
+    char first = id[0];
+    char second = id[1];
+    if(first == 'C' && second == 'O'){//Company
+        for(int i = 0;i < Publisher::listCompany.size();i++){
+            if(Publisher::listCompany[i].getId() == id){
+                return Publisher::listCompany[i];
+            }
         }
+    }else if(first == 'P' && second == 'P'){//PhysicalPerson
+        for(int i = 0;i < Publisher::listPhysicalPerson.size();i++){
+            if(Publisher::listPhysicalPerson[i].getId() == id){
+                return Publisher::listPhysicalPerson[i];
+            }
+        }
+    }else{
+        cout<<"Erreur cet identifiant n'est pas possible"<<endl;
     }
 }
 
 void Publisher::setAdvertisement(string id,Advertisement a){
-    for(int i = 0;i < Publisher::listBook.size();i++){
-        char first = Publisher::listBook[i].getId()[0];
-        char second = Publisher::listBook[i].getId()[1];
-        if(first == 'M' && second == 'G' && Publisher::listBook[i].getId() == id){
-            cout<<Publisher::listBook[i];
-            //canger les vecteurs
-        }
+    for(int i = 0;i < Publisher::listMagazines.size();i++){
+            if(Publisher::listMagazines[i].getId() == id){
+                Publisher::listMagazines[i].addElement(a);
+            }
     }
 }
 /*OBJECT METHOD*/

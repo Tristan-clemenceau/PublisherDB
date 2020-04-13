@@ -218,7 +218,12 @@ private:
     /*ATTRIBUTE*/
     vector<Person> listPerson;
     vector<Book> listBook;
-    //Rajouter vecteur pour les autres classes
+    /*Update*/
+    vector<PaperBook> listPaperBook;
+    vector<HardBack> listHardBack;
+    vector<Magazines> listMagazines;
+    vector<Company> listCompany;
+    vector<PhysicalPerson> listPhysicalPerson;
     vector<Advertiser> listAdvertiser;
     vector<Advertisement> listAdvertisement;
     /*OTHER*/
@@ -231,11 +236,16 @@ private:
     void loadDataAdvertisement();
     void addBook(Book b);
     void addPerson(Person p);
+    /*Update*/
+    void addPaperBook(PaperBook p);
+    void addHarback(HardBack h);
+    void addCompany(Company c);
+    void addPhysicalPerson(PhysicalPerson p);
     void addAdvertiser(Advertiser a);
     void addAdvertisement(Advertisement a);
     void setAdvertiser();
     void setAdvertisement(string id,Advertisement a);
     vector<string> split(string text);
-    Person test(string id);
+    Person getPersonById(string id);
 };
 #endif // PROJECTDBHEADER_H_INCLUDED
