@@ -2,18 +2,18 @@
 using namespace std;
 
 /*CONSTRUCTOR*/
-PaperBook::PaperBook(): Book(){
+PaperBack::PaperBack(): Book(){
 
 }
 /*DESTRUCTOR*/
-PaperBook::~PaperBook(){
+PaperBack::~PaperBack(){
     //cout<<"Deleting paperBook item"<<endl;
 }
 /*GETTER*/
 /*SETTER*/
 /*OTHER*/
 /*OBJECT METHOD*/
-ostream& operator<<(ostream &out,PaperBook &b){
-    out<<"[PaperBook]\t Title : "<<b.getTitle()<<"\t Id : "<<b.getId()<<"\t nbPage : "<<b.getNbPage()<<endl;
+ostream& operator<<(ostream &out,PaperBack &b){
+    out<<"[PaperBack]\t Title : "<<b.getTitle()<<"\t Id : "<<b.getId()<<"\t nbPage : "<<b.getNbPage()<<endl;
     return out;
 }

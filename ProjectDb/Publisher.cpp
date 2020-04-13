@@ -14,11 +14,11 @@ Publisher::Publisher(){
 Publisher::~Publisher(){
 }
 /*GETTER*/
-vector<Person> Publisher::getListPerson(){
-    return Publisher::listPerson;
+int Publisher::getNbPerson(){
+    return (Publisher::listCompany.size() + Publisher::listPhysicalPerson.size());
 }
-vector<Book> Publisher::getListBook(){
-    return Publisher::listBook;
+int Publisher::getNbBook(){
+    return (Publisher::listHardBack.size() + Publisher::listPaperBackBook.size() + Publisher::listMagazines.size());
 }
 /*SETTER*/
 /*OTHER*/
@@ -37,12 +37,27 @@ void Publisher::loadData(){
 void Publisher::displayWeightBook(){
 }
 void Publisher::displayMagazine(){
+    cout<<"===Display All Magazines==="<<endl;
+    for(int i = 0; i< Publisher::listMagazines.size();i++){
+        cout<<Publisher::listMagazines[i];
+    }
+    cout<<"===End Display Magazines==="<<endl;
 }
 void Publisher::displayHardback(){
+    cout<<"===Display All HardBack==="<<endl;
+    for(int i = 0; i< Publisher::listHardBack.size();i++){
+        cout<<Publisher::listHardBack[i];
+    }
+    cout<<"===End Display HardBack==="<<endl;
 }
 void Publisher::displayAdvertiser(){
 }
-void Publisher::displayPaperbook(){
+void Publisher::displayPaperBackbook(){
+    cout<<"===Display All PaperBack==="<<endl;
+    for(int i = 0; i< Publisher::listPaperBackBook.size();i++){
+        cout<<Publisher::listPaperBackBook[i];
+    }
+    cout<<"===End Display PaperBack==="<<endl;
 }
 void Publisher::displayMagazineInfo(){
 }
@@ -64,16 +79,16 @@ void Publisher::loadDataPaperBook(){
         //Split data
         vector<string> temp = Publisher::split(myText);
         //Creating Object
-        PaperBook tempPaper;
+        PaperBack tempPaper;
         tempPaper.setId(temp[0]);
         tempPaper.setTitle(temp[1]);
         tempPaper.setNbPage(atoi(temp[2].c_str()));
         tempPaper.setBookContent(temp[3]);
 
-        cout<<tempPaper;
+        //cout<<tempPaper;
 
         //adding object to vector
-        Publisher::addPaperBook(tempPaper);
+        Publisher::addPaperBackBook(tempPaper);
 
     }
     //adding object to vector
@@ -95,7 +110,7 @@ void Publisher::loadDataHardBackBook(){
         tempHard.setBookContent(temp[3]);
         tempHard.setWeight(strtof(temp[4].c_str(),0));
 
-        cout<<tempHard;
+        //cout<<tempHard;
 
         //adding object to vector
         Publisher::addHarback(tempHard);
@@ -119,8 +134,6 @@ void Publisher::loadDataMagazine(){
         tempMag.setNbPage(atoi(temp[2].c_str()));
         tempMag.setBookContent(temp[3]);
 
-        cout<<tempMag;
-
         //adding object to vector
         Publisher::addMagazine(tempMag);
 
@@ -140,8 +153,6 @@ void Publisher::loadDataCompany(){
         Company tempComp;
         tempComp.setId(temp[0]);
         tempComp.setName(temp[1]);
-
-        cout<<tempComp;
 
         //adding object to vector
         Publisher::addCompany(tempComp);
@@ -163,10 +174,7 @@ void Publisher::loadDataPhysicalPerson(){
         tempphy.setId(temp[0]);
         tempphy.setName(temp[1]);
 
-        cout<<tempphy;
-
         //adding object to vector
-        //Publisher::addPerson(tempphy);
         Publisher::addPhysicalPerson(tempphy);
 
     }
@@ -230,15 +238,9 @@ vector<string> Publisher::split(string text){
     res.push_back(text);
     return res;
 }
-void Publisher::addBook(Book b){
-    Publisher::listBook.push_back(b);
-}
-void Publisher::addPerson(Person p){
-    Publisher::listPerson.push_back(p);
-}
 /*Update*/
-void Publisher::addPaperBook(PaperBook p){
-    Publisher::listPaperBook.push_back(p);
+void Publisher::addPaperBackBook(PaperBack p){
+    Publisher::listPaperBackBook.push_back(p);
 }
 void Publisher::addHarback(HardBack h){
     Publisher::listHardBack.push_back(h);
@@ -259,12 +261,10 @@ void Publisher::addAdvertisement(Advertisement a){
 void Publisher::setAdvertiser(){
     for(int i = 0; i<Publisher::listAdvertiser.size();i++){
             Publisher::listAdvertiser[i].setPerson(Publisher::getPersonById(Publisher::listAdvertiser[i].getPerson().getId()));
-            cout<<Publisher::listAdvertiser[i];
     }
 }
 
 Person Publisher::getPersonById(string id){
-    cout<<"Searching person"<<endl;
     char first = id[0];
     char second = id[1];
     if(first == 'C' && second == 'O'){//Company
@@ -293,6 +293,6 @@ void Publisher::setAdvertisement(string id,Advertisement a){
 }
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,Publisher &p){
-    out<<"[Publisher]\t NbBook : "<<p.getListBook().size()<<"\t NbPerson : "<<p.getListPerson().size()<<endl;
+    out<<"[Publisher]\t NbBook : "<<p.getNbBook()<<"\t NbPerson : "<<p.getNbPerson()<<endl;
     return out;
 }

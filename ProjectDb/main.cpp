@@ -31,6 +31,9 @@ int main()
     cout<<pub;*/
 
     pub.loadData();
+    pub.displayMagazine();
+    pub.displayPaperBackbook();
+    pub.displayHardback();
     cout<<pub;
 
     return 0;

@@ -34,17 +34,17 @@ private:
     string bookContent;
 };
 
-class PaperBook : public Book{
+class PaperBack : public Book{
 public:
     /*CONSTRUCTOR*/
-    PaperBook();
+    PaperBack();
     /*DESTRUCTOR*/
-    ~PaperBook();
+    ~PaperBack();
     /*GETTER*/
     /*SETTER*/
     /*OTHER*/
     /*OBJECT METHOD*/
-    friend ostream& operator<<(ostream &out,PaperBook &b);
+    friend ostream& operator<<(ostream &out,PaperBack &b);
 
 private:
     /*ATTRIBUTE*/
@@ -196,8 +196,8 @@ public:
     /*DESTRUCTOR*/
     ~Publisher();
     /*GETTER*/
-    vector<Person> getListPerson();
-    vector<Book> getListBook();
+    int getNbPerson();
+    int getNbBook();
     /*SETTER*/
     /*OTHER*/
     void loadData();
@@ -205,7 +205,7 @@ public:
     void displayMagazine();
     void displayHardback();
     void displayAdvertiser();
-    void displayPaperbook();
+    void displayPaperBackbook();
     void displayMagazineInfo();
     void searchWord(string word);
     void addMagazine(Magazines mag);
@@ -216,10 +216,7 @@ public:
 
 private:
     /*ATTRIBUTE*/
-    vector<Person> listPerson;
-    vector<Book> listBook;
-    /*Update*/
-    vector<PaperBook> listPaperBook;
+    vector<PaperBack> listPaperBackBook;
     vector<HardBack> listHardBack;
     vector<Magazines> listMagazines;
     vector<Company> listCompany;
@@ -234,10 +231,7 @@ private:
     void loadDataPhysicalPerson();
     void loadDataAdvertiser();
     void loadDataAdvertisement();
-    void addBook(Book b);
-    void addPerson(Person p);
-    /*Update*/
-    void addPaperBook(PaperBook p);
+    void addPaperBackBook(PaperBack p);
     void addHarback(HardBack h);
     void addCompany(Company c);
     void addPhysicalPerson(PhysicalPerson p);
