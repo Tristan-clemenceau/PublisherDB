@@ -242,6 +242,7 @@ private:
     vector<string> split(string text);
     Person getPersonById(string id);
     Magazines getChoiceMagazines();
+    string generateId();
     bool notIn(string choix, vector<string> magId);
 };
 #endif // PROJECTDBHEADER_H_INCLUDED

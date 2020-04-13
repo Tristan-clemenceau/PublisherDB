@@ -89,15 +89,25 @@ void Publisher::addMagazine(Magazines mag){
 }
 void Publisher::userAddMagazine(){
     cout<<"===Add Magazine==="<<endl;
-    int a = 10;
-    stringstream ss;
-    ss << a;
-    string str = ss.str();
-    string t = "MG";
-    t+=str;
-    cout<<str<<endl;
-    cout<<t<<endl;
+    Magazines tempMag;
+    string choix;
 
+    cout<<"Please enter a Magazine title"<<endl;
+    cin>>choix;
+    tempMag.setTitle(choix);
+
+    cout<<"Please enter the number of page"<<endl;
+    cin>>choix;
+    tempMag.setNbPage(atoi(choix.c_str()));
+
+    tempMag.setId(Publisher::generateId());
+    tempMag.setBookContent("/rezrez/Rezareza/reza");
+    tempMag.addElement(Publisher::listAdvertisement.at(0));
+    tempMag.addElement(Publisher::listAdvertisement.at(0));
+    tempMag.addElement(Publisher::listAdvertisement.at(0));
+    Publisher::addMagazine(tempMag);
+
+    cout<<tempMag;
     cout<<"===End Add Magazine==="<<endl;
 }
 void Publisher::userRemoveBook(){
@@ -339,7 +349,6 @@ vector<string> Publisher::split(string text){
     res.push_back(text);
     return res;
 }
-/*Update*/
 void Publisher::addPaperBackBook(PaperBack p){
     Publisher::listPaperBackBook.push_back(p);
 }
@@ -419,6 +428,20 @@ Magazines Publisher::getChoiceMagazines(){
         }
     }
     return Publisher::listMagazines[cpt];
+}
+string Publisher::generateId(){
+    string id = "MG";
+    stringstream ss;
+
+    if((Publisher::listMagazines.size()+1)< 10){//add '0'
+        ss << Publisher::listMagazines.size()+1;
+        id+="0";
+        id+=ss.str();
+    }else{
+        ss << Publisher::listMagazines.size()+1;
+        id+=ss.str();
+    }
+    return id;
 }
 bool Publisher::notIn(string choix, vector<string> magId){
     bool ok = false;

@@ -38,8 +38,9 @@ int main()
     pub.displayAdvertiser();
     pub.displayAdvertisement();
     pub.displayWeightBook();
-    pub.userAddMagazine();
     pub.userRemoveBook();
+    //pub.displayMagazine();
+    pub.userAddMagazine();
     pub.displayMagazine();
 
     cout<<pub;
