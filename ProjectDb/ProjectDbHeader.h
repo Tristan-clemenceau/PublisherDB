@@ -205,12 +205,11 @@ public:
     void displayMagazine();
     void displayHardback();
     void displayAdvertiser();
+    void displayAdvertisement();
     void displayPaperBackbook();
-    void displayMagazineInfo();
     void searchWord(string word);
-    void addMagazine(Magazines mag);
-    void removeMagazine(string id);
-    void removeBook(string id);
+    void userAddMagazine();
+    void userRemoveBook();
     /*OBJECT METHOD*/
     friend ostream& operator<<(ostream &out,Publisher &p);
 
@@ -237,9 +236,12 @@ private:
     void addPhysicalPerson(PhysicalPerson p);
     void addAdvertiser(Advertiser a);
     void addAdvertisement(Advertisement a);
+    void addMagazine(Magazines mag);
     void setAdvertiser();
     void setAdvertisement(string id,Advertisement a);
     vector<string> split(string text);
     Person getPersonById(string id);
+    Magazines getChoiceMagazines();
+    bool notIn(string choix, vector<string> magId);
 };
 #endif // PROJECTDBHEADER_H_INCLUDED

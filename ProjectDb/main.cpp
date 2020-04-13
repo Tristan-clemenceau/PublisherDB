@@ -34,6 +34,10 @@ int main()
     pub.displayMagazine();
     pub.displayPaperBackbook();
     pub.displayHardback();
+    pub.displayAdvertiser();
+    pub.displayAdvertisement();
+    pub.displayWeightBook();
+
     cout<<pub;
 
     return 0;

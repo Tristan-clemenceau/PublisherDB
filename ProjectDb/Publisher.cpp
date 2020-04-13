@@ -35,6 +35,13 @@ void Publisher::loadData(){
     cout<<"===Data loaded==="<<endl;
 }
 void Publisher::displayWeightBook(){
+    cout<<"===Display Sum Hardback Book==="<<endl;
+    float sum=0;
+    for(int i = 0; i< Publisher::listHardBack.size();i++){
+       sum+=Publisher::listHardBack[i].getWeight();
+    }
+    cout<<"Nb HardBack book : "<<Publisher::listHardBack.size()<<"\t Total Weight : "<<sum<<" lbs"<<endl;
+    cout<<"===End Sum Hardback Book==="<<endl;
 }
 void Publisher::displayMagazine(){
     cout<<"===Display All Magazines==="<<endl;
@@ -50,7 +57,14 @@ void Publisher::displayHardback(){
     }
     cout<<"===End Display HardBack==="<<endl;
 }
-void Publisher::displayAdvertiser(){
+void Publisher::displayAdvertisement(){
+    cout<<"===Display All Advertisement==="<<endl;
+    /*GET CHOICE*/
+    Magazines temp;
+    temp = Publisher::getChoiceMagazines();
+    /*Display data*/
+    cout<<temp;
+    cout<<"===End Display Advertisement==="<<endl;
 }
 void Publisher::displayPaperBackbook(){
     cout<<"===Display All PaperBack==="<<endl;
@@ -59,16 +73,27 @@ void Publisher::displayPaperBackbook(){
     }
     cout<<"===End Display PaperBack==="<<endl;
 }
-void Publisher::displayMagazineInfo(){
+void Publisher::displayAdvertiser(){
+    cout<<"===Display All Advertiser==="<<endl;
+    for(int i = 0; i< Publisher::listAdvertiser.size();i++){
+        cout<<Publisher::listAdvertiser[i];
+    }
+    cout<<"===End Display Advertiser==="<<endl;
 }
 void Publisher::searchWord(string word){
 }
 void Publisher::addMagazine(Magazines mag){
     Publisher::listMagazines.push_back(mag);
 }
-void Publisher::removeMagazine(string id){
+void userAddMagazine(){
+    cout<<"===Add Magazine==="<<endl;
+
+    cout<<"===End Add Magazine==="<<endl;
 }
-void Publisher::removeBook(string id){
+void userRemoveBook(){
+    cout<<"===Remove Book/Magazine==="<<endl;
+
+    cout<<"===End Remove Book/Magazine==="<<endl;
 }
 void Publisher::loadDataPaperBook(){
     cout<<"Loading data PaperBook"<<endl;
@@ -290,6 +315,44 @@ void Publisher::setAdvertisement(string id,Advertisement a){
                 Publisher::listMagazines[i].addElement(a);
             }
     }
+}
+Magazines Publisher::getChoiceMagazines(){
+    vector<string> magazineId;
+
+    cout<<"=[MAGAZINES ID]="<<endl;
+    //DISPLAY ALL ID
+    for(int i = 0; i< Publisher::listMagazines.size();i++){
+        cout<<Publisher::listMagazines[i].getId()<<" , ";
+        magazineId.push_back(Publisher::listMagazines[i].getId());
+    }
+    cout<<"\n=[MAGAZINES ID]="<<endl;
+
+    /*CHOICE*/
+    cout<<"Please enter a Magazine ID "<<endl;
+
+    string choix;
+    cin>>choix;
+   while(Publisher::notIn(choix,magazineId) != true){
+        cout<<"Please enter a Magazine ID "<<endl;
+        cin>>choix;
+    }
+    int cpt;
+    for(int i = 0; i< Publisher::listMagazines.size();i++){
+        if(choix == Publisher::listMagazines[i].getId()){
+            cpt = i;
+        }
+    }
+    return Publisher::listMagazines[cpt];
+}
+bool Publisher::notIn(string choix, vector<string> magId){
+    bool ok = false;
+
+    for(int i = 0; i < magId.size();i++){
+        if(choix == magId[i]){
+            ok =true;
+        }
+    }
+    return ok;
 }
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,Publisher &p){
