@@ -6,7 +6,14 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <regex>
+#include <mutex>
+#include <thread>
+
 using namespace std;
+
+mutex m;
+
 
 /*CONSTRUCTOR*/
 Publisher::Publisher(){
@@ -24,6 +31,30 @@ int Publisher::getNbBook(){
 }
 /*SETTER*/
 /*OTHER*/
+
+void threadCount(string word,string pathStr,string idBook){
+    m.lock();
+    /*LECTURE DE CHAQUE LIGNE DU CONTENT D'un livre*/
+    regex  const expression(word);
+    string myText;
+    int cpt = 0;
+
+    //Read file
+    ifstream MyReadFile(pathStr);
+    while(getline(MyReadFile, myText)) {
+        std::ptrdiff_t const match_count(std::distance(
+        std::sregex_iterator(myText.begin(), myText.end(), expression),
+        std::sregex_iterator()));
+
+        cpt+= match_count;
+    }
+    MyReadFile.close();
+    /*AFFICHAGE DU NOMBRE DE RESULTAT*/
+    cout<<"There are "<<cpt<<" ("<<word<<") in "<<idBook<<" at path : "<<pathStr<<endl;
+
+    m.unlock();
+}
+
 void Publisher::loadData(){
     cout<<"===Loading data==="<<endl;
     Publisher::loadDataPaperBook();
@@ -82,7 +113,17 @@ void Publisher::displayAdvertiser(){
     }
     cout<<"===End Display Advertiser==="<<endl;
 }
-void Publisher::searchWord(string word){
+void Publisher::searchWord(){
+    cout<<"===Search Word ==="<<endl;
+    string choix;
+
+    cout<<"Please enter a word"<<endl;
+    cin>>choix;
+
+    /*function recherche*/
+    Publisher::threadAndSearch(choix);
+
+    cout<<"===End Search Word==="<<endl;
 }
 void Publisher::addMagazine(Magazines mag){
     Publisher::listMagazines.push_back(mag);
@@ -101,7 +142,7 @@ void Publisher::userAddMagazine(){
     tempMag.setNbPage(atoi(choix.c_str()));
 
     tempMag.setId(Publisher::generateId());
-    tempMag.setBookContent("/rezrez/Rezareza/reza");
+    tempMag.setBookContent("Database//Content//Act1.txt");
     tempMag.addElement(Publisher::listAdvertisement.at(0));
     tempMag.addElement(Publisher::listAdvertisement.at(0));
     tempMag.addElement(Publisher::listAdvertisement.at(0));
@@ -434,11 +475,11 @@ string Publisher::generateId(){
     stringstream ss;
 
     if((Publisher::listMagazines.size()+1)< 10){//add '0'
-        ss << Publisher::listMagazines.size()+1;
+        ss << Publisher::listMagazines.size()+2;
         id+="0";
         id+=ss.str();
     }else{
-        ss << Publisher::listMagazines.size()+1;
+        ss << Publisher::listMagazines.size()+2;
         id+=ss.str();
     }
     return id;
@@ -453,6 +494,25 @@ bool Publisher::notIn(string choix, vector<string> magId){
     }
     return ok;
 }
+void Publisher::threadAndSearch(string theWord){
+    /*Creation des thread*/
+    vector<thread> threadArr;
+
+    for(unsigned i = 0; i<Publisher::listMagazines.size();i++){/*MAG*/
+        threadArr.push_back(thread(threadCount, theWord,Publisher::listMagazines[i].getBookContent(),Publisher::listMagazines[i].getId()));//word,path,id
+    }
+    for(unsigned i = 0; i<Publisher::listPaperBackBook.size();i++){/*PAPERBACK*/
+        threadArr.push_back(thread(threadCount, theWord,Publisher::listPaperBackBook[i].getBookContent(),Publisher::listPaperBackBook[i].getId()));
+    }
+    for(unsigned i = 0; i<Publisher::listHardBack.size();i++){/*HARDBACK*/
+        threadArr.push_back(thread(threadCount, theWord,Publisher::listHardBack[i].getBookContent(),Publisher::listHardBack[i].getId()));
+    }
+    /*JOIN Thread des thread*/
+    for(unsigned i = 0; i<threadArr.size();i++){
+        threadArr[i].join();
+    }
+}
+
 /*OBJECT METHOD*/
 ostream& operator<<(ostream &out,Publisher &p){
     out<<"[Publisher]\t NbBook : "<<p.getNbBook()<<"\t NbPerson : "<<p.getNbPerson()<<endl;

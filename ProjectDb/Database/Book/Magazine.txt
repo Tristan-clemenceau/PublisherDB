@@ -1,2 +1,2 @@
-MG01,Public,150,tretre/tretrez/trezetrz
-MG02,Konbini,170,treffftre/tretrez/trezetrz
+MG01,Public,150,Database//Content//Act2.txt
+MG02,Konbini,170,Database//Content//Act1.txt

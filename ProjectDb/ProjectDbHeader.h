@@ -207,7 +207,7 @@ public:
     void displayAdvertiser();
     void displayAdvertisement();
     void displayPaperBackbook();
-    void searchWord(string word);
+    void searchWord();
     void userAddMagazine();
     void userRemoveBook();
     /*OBJECT METHOD*/
@@ -239,6 +239,7 @@ private:
     void addMagazine(Magazines mag);
     void setAdvertiser();
     void setAdvertisement(string id,Advertisement a);
+    void threadAndSearch(string theWord);
     vector<string> split(string text);
     Person getPersonById(string id);
     Magazines getChoiceMagazines();

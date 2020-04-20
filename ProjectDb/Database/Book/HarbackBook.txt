@@ -1,2 +1,2 @@
-HB01,Romeo juliette,300,link/link,14.5
-HB02,Nanbaka,390,link2/link,54.5
+HB01,Romeo juliette,300,Database//Content//Act1.txt,14.5
+HB02,Nanbaka,390,Database//Content//Act2.txt,54.5
