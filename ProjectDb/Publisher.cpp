@@ -471,17 +471,31 @@ Magazines Publisher::getChoiceMagazines(){
     return Publisher::listMagazines[cpt];
 }
 string Publisher::generateId(){
+    vector<string> magazineId;
     string id = "MG";
     stringstream ss;
-
-    if((Publisher::listMagazines.size()+1)< 10){//add '0'
-        ss << Publisher::listMagazines.size()+2;
-        id+="0";
-        id+=ss.str();
-    }else{
-        ss << Publisher::listMagazines.size()+2;
-        id+=ss.str();
+    /*ADDING ALL THE MAGAZIN ID*/
+    for(unsigned i = 0; i< Publisher::listMagazines.size();i++){
+        magazineId.push_back(Publisher::listMagazines[i].getId());
     }
+
+    int cpt = 1;
+    ss<<cpt;
+    id+="0";
+    id+=ss.str();
+
+    while(Publisher::notIn(id,magazineId)){/*Ordonate ID*/
+        if(cpt<10){
+            ss<<cpt;
+            id+="0";
+            id+=ss.str();
+        }else{
+            ss<<cpt;
+            id+=ss.str();
+        }
+        cpt++;
+    }
+
     return id;
 }
 bool Publisher::notIn(string choix, vector<string> magId){
