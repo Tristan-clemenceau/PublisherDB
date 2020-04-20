@@ -9,6 +9,7 @@
 #include <regex>
 #include <mutex>
 #include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -50,6 +51,7 @@ void threadCount(string word,string pathStr,string idBook){
     }
     MyReadFile.close();
     /*AFFICHAGE DU NOMBRE DE RESULTAT*/
+    this_thread::sleep_for (chrono::seconds(5));
     cout<<"There are "<<cpt<<" ("<<word<<") in "<<idBook<<" at path : "<<pathStr<<endl;
 
     m.unlock();
