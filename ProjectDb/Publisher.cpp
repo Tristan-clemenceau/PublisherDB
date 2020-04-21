@@ -485,17 +485,27 @@ string Publisher::generateId(){
     ss<<cpt;
     id+="0";
     id+=ss.str();
+    bool ok = false;
 
-    while(Publisher::notIn(id,magazineId)){/*Ordonate ID*/
-        if(cpt<10){
-            ss<<cpt;
-            id+="0";
-            id+=ss.str();
+    while(!ok){
+        if(!Publisher::notIn(id,magazineId)){
+            ok = true;
         }else{
-            ss<<cpt;
-            id+=ss.str();
+            if(cpt<10){
+                cpt++;
+                id = "MG0";
+                ss.str("");
+                ss<<cpt;
+                id+=ss.str();
+            }else{
+                cpt++;
+                id = "MG";
+                ss.str("");
+                ss<<cpt;
+                id+=ss.str();
+            }
+
         }
-        cpt++;
     }
 
     return id;
